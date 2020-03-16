@@ -295,9 +295,13 @@
           laser.y = -120;
         }
         else if(intersects(laser, home) && damage_taken >= 1000){
+          var element = document.getElementById(laser);
+          element.parentNode.removeChild(element);
           location.replace("home_page.html");  
         } 
         else if(intersects(laser, play_again) && damage_taken >= 1000){
+          var element = document.getElementById(laser);
+          element.parentNode.removeChild(element);
           location.replace("hard.html");  
         }
       }
