@@ -1,0 +1,385 @@
+<html>
+    <head>
+        <link rel = "stylesheet" href = "home_page.css">
+        <link href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel = "stylesheet">
+    <style>
+        #template {
+            background-color: black;
+            position: absolute;
+            bottom: 20px;
+            left:0;
+            top:0;
+        }
+        #hero {
+            background: url(bow_5.png) no-repeat;
+            width: 200px;
+            height: 100px;
+            position: absolute;
+        }
+        #normal {
+            background: blue;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+        #hard {
+            background: blue;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+        #ez {
+            background: blue;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+        }
+        #background {
+            background: url(b4.png) no-repeat;
+            width: 860px;
+            height: 600px;
+            position: absolute;
+            top: 20px;
+            left: 22.8%;
+        }
+         #laser {
+            background: url(arrow_2.png) no-repeat;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+          #tag {
+              color: white;
+              font-size: 10pt;
+              position: absolute;
+              font-weight: bold;
+              left: 47%;
+              top: 650;
+          }
+          #left_frame_1{
+            background: url(lf_2.png) no-repeat;
+            width: 200px;
+            height: 600px;
+            position: absolute;
+            left: 350px;
+            top: 0px;
+          }
+          #right_frame_1{
+            background: url(rf_2.png) no-repeat;
+            width: 200px;
+            height: 600px;
+            position: absolute;
+            left: 1180px;
+            top: 0px;
+          }
+          #top_frame_1{
+            background: url(tf_4.png) no-repeat;
+            width: 1000px;
+            height: 200px;
+            position: absolute;
+            left: 469px;
+            top: 0px;
+          }
+          #top_frame_2{
+            background: url(tf_5.png) no-repeat;
+            width: 800px;
+            height: 200px;
+            position: absolute;
+            left: 350px;
+            top: 0px;
+          }
+          #bot_frame_1{
+            background: url(bf_7.png) no-repeat;
+            width: 1000px;
+            height: 100px;
+            position: absolute;
+            left: 469px;
+            top: 485px;
+          }
+          #bot_frame_2{
+            background: url(bf_6.png) no-repeat;
+            width: 800px;
+            height: 100px;
+            position: absolute;
+            left: 350;
+            top: 485px;
+          }
+          #level{
+              color:white;
+              font-size: 20pt;
+              position: absolute;
+              font-weight: bold;
+              left: 37.7%;
+              top: 120;
+              visibility: visible;
+
+          }
+          #intro{
+            color:white;
+              font-size: 30pt;
+              position: absolute;
+              font-weight: bold;
+              left: 37.7%;
+              top: 60;
+              visibility: visible;
+          }
+          #main_t {
+            color: white;
+            font-size: 60pt;
+            position: absolute;
+            font-weight: bold;
+            top: 550;
+            visibility: visible;
+          }
+          #target_1{
+            background: url(target_2.png) no-repeat;
+            width: 200px;
+            height: 200px;
+            top: 155px;
+            position: absolute;
+          }
+          #target_2{
+            background: url(target_2.png) no-repeat;
+            width: 200px;
+            height: 200px;
+            top: 155px;
+            position: absolute;
+          }
+          #target_3{
+            background: url(target_2.png) no-repeat;
+            width: 200px;
+            height: 200px;
+            top: 155px;
+            position: absolute;
+          }
+          .box li{
+            display: inline-block;
+            margin-right: 100px;
+
+          }
+          .btn{
+            left:50;
+            top:50;
+            display: inline-block;
+            width: 65px;
+            height: 60px;
+            background: #f1f1f1;
+            border-radius: 30%;
+            color: red;
+            position: relative;
+            padding-bottom: 10px;
+            padding-left: 5px;
+          }
+          .btn i{
+            font-size: 70px;
+            position: relative;
+}
+    </style>
+    </head>
+    <body>
+    <div id="normal"></div>
+    <div id="hard"></div>
+    <div id="ez"></div>
+    <div id="template"></div>
+    <div id="background"></div>
+    <div id="hero"></div>
+    <div id="tag">Creator: Geordy Decena</div>
+    <div id ="left_frame_1"></div>
+    <div id ="right_frame_1"></div>
+    <div id="top_frame_1"></div>
+    <div id="top_frame_2"></div>
+    <div id="bot_frame_1"></div>
+    <div id="bot_frame_2"></div>
+    <div id="intro">SELECT DIFFICULTY</div>
+    <div id="level">EASY &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp NORMAL &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp HARD</div>
+    <div id="main_t">CASTLE DEFENSE</div>
+    <div id="target_1"></div>
+    <div id="target_2"></div>
+    <div id="target_3"></div>
+    <div id="laser"></div>
+    <script>
+    
+    var LEFT_KEY = 37;
+    var RIGHT_KEY = 39;
+    var SPACE_KEY = 32;
+    var HERO_MOVEMENT = 15;
+    var px_x = screen.width * 0.25;
+
+    var element = document.getElementById('background');
+        element.style.left = px_x-30;
+        element = document.getElementById('main_t');
+        element.style.left = px_x+50;
+        element = document.getElementById('tag');
+        element.style.left = px_x+340;
+        element = document.getElementById('left_frame_1');
+        element.style.left = px_x-34;
+        element = document.getElementById('top_frame_1');
+        element.style.left = px_x+85;
+        element = document.getElementById('top_frame_2');
+        element.style.left = px_x-34;
+        element = document.getElementById('bot_frame_1');
+        element.style.left = px_x+85;
+        element = document.getElementById('bot_frame_2');
+        element.style.left = px_x-34;
+        element = document.getElementById('level');
+        element.style.left = px_x+195;
+        element = document.getElementById('intro');
+        element.style.left = px_x+197;
+        element = document.getElementById('target_1');
+        element.style.left = px_x+189.5;
+        element = document.getElementById('target_2');
+        element.style.left = px_x+358.7;
+        element = document.getElementById('target_3');
+        element.style.left = px_x+529;
+        element = document.getElementById('template');
+        element.style.width = screen.width;
+        element.style.height = screen.height-110;
+
+    
+    var lastLoopRun = 0;
+    
+    var controller = new Object();
+    
+     function createSprite(element, x, y, w, h) {
+      var result = new Object();
+      result.element = element;
+      result.x = x;
+      result.y = y;
+      result.w = w;
+      result.h = h;
+      return result;
+    }
+    
+    function toggleKey(keyCode, isPressed) {
+      if (keyCode == LEFT_KEY) {
+        controller.left = isPressed;
+      }
+      if (keyCode == RIGHT_KEY) {
+        controller.right = isPressed;
+      }
+      if (keyCode == SPACE_KEY) {
+        controller.space = isPressed;
+      }  
+    }
+    
+    function intersects(a, b) {
+      return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+    }
+    
+    function ensureBounds(sprite, ignoreY) {
+      if (sprite.x < 400) {        
+        sprite.x = 400;  
+      }
+      if (!ignoreY && sprite.y < 300) {
+        sprite.y = 300;
+      }
+
+      if (!ignoreY && sprite.y + sprite.h > 480) {
+        sprite.y = 480 - sprite.h;
+      }
+    }
+
+    function ensureBounds_bow(sprite, ignoreY) {
+      if (sprite.x < 400) {
+        sprite.x = 400;  
+      }
+      if (sprite.x + sprite.w > 1060) {
+        sprite.x = 1060 - sprite.w;
+      }
+    }
+    
+    function setPosition(sprite) {
+      var e = document.getElementById(sprite.element);
+      e.style.left = sprite.x + 'px';
+      e.style.top = sprite.y + 'px';
+    }
+    
+    function handleControls() {
+      if (controller.up) {
+        hero.y -= HERO_MOVEMENT;
+      }
+      if (controller.down) {
+        hero.y += HERO_MOVEMENT;
+      }
+      if (controller.left) {
+        hero.x -= HERO_MOVEMENT;
+      }
+      if (controller.right) {
+        hero.x += HERO_MOVEMENT;
+      }
+      if (controller.space && laser.y <= -120) {
+        laser.x = hero.x + 58;
+        laser.y = hero.y - 10;
+      }
+      
+      ensureBounds_bow(hero);
+    }
+    
+    function checkCollisions() {
+
+        if (laser.y <= 20) {
+          laser.y = -120;
+        }
+        else if(intersects(laser, ez)) {
+          location.replace("easy.html");  
+          alert("Your screen resolution is: " + screen.width + "x" + screen.height + "/" + px_x + "/"  + main_t_px);
+        }
+        else if(intersects(laser, normal)) {
+          location.replace("normal.html");
+          laser.y = -120;  
+        }
+        else if(intersects(laser, hard)) {
+          location.replace("hard.html");
+          laser.y = -120;  
+        }
+
+    }
+    
+
+    function showSprites() {
+      setPosition(hero);
+      setPosition(laser);
+      setPosition(ez);
+      setPosition(normal);
+      setPosition(hard);
+
+    }
+    
+    function updatePositions() {
+
+      laser.y -= 30;
+    }
+    
+    
+    function loop() {
+      if (new Date().getTime() - lastLoopRun > 40) {
+        updatePositions();
+        handleControls();
+        checkCollisions();
+        
+        showSprites();
+        
+        lastLoopRun = new Date().getTime();
+      }
+      setTimeout('loop();', 2);
+    }
+    
+    document.onkeydown = function(evt) {
+      toggleKey(evt.keyCode, true);
+    };
+    
+    document.onkeyup = function(evt) {
+      toggleKey(evt.keyCode, false);
+    };
+    
+    var hero = createSprite('hero', px_x+350, 420, 20, 20);
+    var laser = createSprite('laser', 0, -120, 2, 50);
+    var ez = createSprite('ez', px_x+205, 140, 60, 60);
+    var normal = createSprite('normal', px_x+374, 140, 60, 60);
+    var hard = createSprite('hard', px_x+544, 140, 60, 60);
+    
+    loop();
+    
+    </script>
+    </body>
+    </html>
